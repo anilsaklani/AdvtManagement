@@ -1,0 +1,88 @@
+﻿@model AdvtManagement.Models.REQUEST
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>REQUEST</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Start_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Start_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.End_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.End_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Budget)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Budget)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AGE_TYPE.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AGE_TYPE.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.COMPANY.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.COMPANY.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.INDUSTRY_TYPE.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.INDUSTRY_TYPE.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.REGION_TYPE.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.REGION_TYPE.Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

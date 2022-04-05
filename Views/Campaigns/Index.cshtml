@@ -1,0 +1,51 @@
+﻿@model IEnumerable<AdvtManagement.Models.CAMPAIGN>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CAMPAIGN_STATUS_TYPE.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DEPARTMENT.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.INVOICE.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.REQUEST.Description)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CAMPAIGN_STATUS_TYPE.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DEPARTMENT.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.INVOICE.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.REQUEST.Description)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Code }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Code }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Code })
+        </td>
+    </tr>
+}
+
+</table>

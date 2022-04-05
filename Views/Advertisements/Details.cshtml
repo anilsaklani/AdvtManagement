@@ -1,0 +1,58 @@
+﻿@model AdvtManagement.Models.ADVERTISEMENT
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ADVERTISEMENT</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Content_url)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Content_url)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ADVT_STATUS_TYPE.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ADVT_STATUS_TYPE.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CAMPAIGN.Department_Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CAMPAIGN.Department_Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEDIA_TYPE.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEDIA_TYPE.Description)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Code }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

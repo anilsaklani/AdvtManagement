@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1d3f0e70f36a4ae78ca3095ffb9cb4d8" Name="Diagram1">
+        <EntityTypeShape EntityType="AdvtManagement.Model.ADVERTISEMENT" Width="1.5" PointX="10.5" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvtManagement.Model.ADVT_STATUS_TYPE" Width="1.5" PointX="8.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvtManagement.Model.AGE_TYPE" Width="1.5" PointX="3.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvtManagement.Model.CAMPAIGN" Width="1.5" PointX="8.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvtManagement.Model.CAMPAIGN_STATUS_TYPE" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvtManagement.Model.CITY" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvtManagement.Model.COMPANY" Width="1.5" PointX="3.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvtManagement.Model.COUNTRY" Width="1.5" PointX="1.5" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvtManagement.Model.CUSTOMER" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvtManagement.Model.DEPARTMENT" Width="1.5" PointX="1.5" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvtManagement.Model.DISCUSSION" Width="1.5" PointX="12.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvtManagement.Model.EMPLOYEE" Width="1.5" PointX="1.5" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvtManagement.Model.FEEDBACK" Width="1.5" PointX="15" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvtManagement.Model.INDUSTRY_TYPE" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvtManagement.Model.INVOICE" Width="1.5" PointX="6" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvtManagement.Model.MEDIA_TYPE" Width="1.5" PointX="8.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvtManagement.Model.REGION_TYPE" Width="1.5" PointX="3.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvtManagement.Model.REQUEST" Width="1.5" PointX="6" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvtManagement.Model.STATE" Width="1.5" PointX="1.5" PointY="7.75" IsExpanded="true" />
+        <AssociationConnector Association="AdvtManagement.Model.FK_ADVERTISEMENT_ADVT_STATUS_TYPE" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvtManagement.Model.FK_ADVERTISEMENT_CAMPAIGN" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvtManagement.Model.FK_ADVERTISEMENT_MEDIA_TYPE" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvtManagement.Model.FK_DISCUSSION_ADVERTISEMENT" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvtManagement.Model.FK_REQUEST_AGE_TYPE" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvtManagement.Model.FK_CAMPAIGN_CAMPAIGN_STATUS_TYPE" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvtManagement.Model.FK_CAMPAIGN_DEPARTMENT" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvtManagement.Model.FK_CAMPAIGN_INVOICE" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvtManagement.Model.FK_CAMPAIGN_REQUEST" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvtManagement.Model.FK_CITIES_STATES" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvtManagement.Model.FK_COMPANY_CITY" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvtManagement.Model.FK_CUSTOMER_CITY" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvtManagement.Model.FK_COMPANY_EMPLOYEE" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvtManagement.Model.FK_DEPARTMENT_COMPANY" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvtManagement.Model.FK_REQUEST_COMPANY" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvtManagement.Model.FK_STATES_COUNTRIES" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvtManagement.Model.FK_CUSTOMER_INDUSTRY_TYPE" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvtManagement.Model.FK_DEPARTMENT_EMPLOYEE" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvtManagement.Model.FK_EMPLOYEE_DEPARTMENT" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvtManagement.Model.FK_FEEDBACK_DISCUSSION" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvtManagement.Model.FK_REQUEST_INDUSTRY_TYPE" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvtManagement.Model.FK_REQUEST_REGION_TYPE" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvtManagement.Model.SPECIALIST" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

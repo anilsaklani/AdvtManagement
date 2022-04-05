@@ -1,0 +1,50 @@
+﻿@model AdvtManagement.Models.CAMPAIGN
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CAMPAIGN</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CAMPAIGN_STATUS_TYPE.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CAMPAIGN_STATUS_TYPE.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DEPARTMENT.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DEPARTMENT.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.INVOICE.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.INVOICE.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.REQUEST.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.REQUEST.Description)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Code }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

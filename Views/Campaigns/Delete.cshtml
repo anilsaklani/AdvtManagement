@@ -1,0 +1,56 @@
+﻿@model AdvtManagement.Models.CAMPAIGN
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>CAMPAIGN</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CAMPAIGN_STATUS_TYPE.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CAMPAIGN_STATUS_TYPE.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DEPARTMENT.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DEPARTMENT.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.INVOICE.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.INVOICE.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.REQUEST.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.REQUEST.Description)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

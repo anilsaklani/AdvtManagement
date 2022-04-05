@@ -1,0 +1,1402 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AdvtManagement.Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ADVERTISEMENT">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Campaign_Code" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Cost" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Content_url" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Media_Code" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ADVT_STATUS_TYPE">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AGE_TYPE">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CAMPAIGN">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Request_id" Type="bigint" Nullable="false" />
+          <Property Name="Department_Code" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Invoice_id" Type="bigint" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CAMPAIGN_STATUS_TYPE">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CITY">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="State_Code" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="COMPANY">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="500" />
+          <Property Name="City_code" Type="varchar" MaxLength="100" />
+          <Property Name="Head_Code" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="COUNTRY">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CUSTOMER">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="City_Code" Type="varchar" MaxLength="100" />
+          <Property Name="Industry_Code" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="DEPARTMENT">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Company_Code" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Head_Code" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DISCUSSION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Advertisement_Code" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="MeetingDate" Type="date" Nullable="false" />
+          <Property Name="Details" Type="varchar" MaxLength="5000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EMPLOYEE">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Department_Code" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FEEDBACK">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Discussion_id" Type="bigint" Nullable="false" />
+          <Property Name="Details" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Incorporated" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="INDUSTRY_TYPE">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="INVOICE">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PaidAmount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MEDIA_TYPE">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="REGION_TYPE">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="REQUEST">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Industry_code" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Start_Date" Type="date" Nullable="false" />
+          <Property Name="End_Date" Type="date" Nullable="false" />
+          <Property Name="Budget" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Company_Code" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Age_code" Type="varchar" MaxLength="100" />
+          <Property Name="Region_Code" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="SPECIALIST">
+          <Key>
+            <PropertyRef Name="Employee_Code" />
+            <PropertyRef Name="Department_Code" />
+          </Key>
+          <Property Name="Employee_Code" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Department_Code" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="STATE">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Country_Code" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ADVERTISEMENT_ADVT_STATUS_TYPE">
+          <End Role="ADVT_STATUS_TYPE" Type="Self.ADVT_STATUS_TYPE" Multiplicity="1" />
+          <End Role="ADVERTISEMENT" Type="Self.ADVERTISEMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADVT_STATUS_TYPE">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ADVERTISEMENT">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ADVERTISEMENT_CAMPAIGN">
+          <End Role="CAMPAIGN" Type="Self.CAMPAIGN" Multiplicity="1" />
+          <End Role="ADVERTISEMENT" Type="Self.ADVERTISEMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAMPAIGN">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ADVERTISEMENT">
+              <PropertyRef Name="Campaign_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ADVERTISEMENT_MEDIA_TYPE">
+          <End Role="MEDIA_TYPE" Type="Self.MEDIA_TYPE" Multiplicity="0..1" />
+          <End Role="ADVERTISEMENT" Type="Self.ADVERTISEMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MEDIA_TYPE">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ADVERTISEMENT">
+              <PropertyRef Name="Media_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CAMPAIGN_CAMPAIGN_STATUS_TYPE">
+          <End Role="CAMPAIGN_STATUS_TYPE" Type="Self.CAMPAIGN_STATUS_TYPE" Multiplicity="1" />
+          <End Role="CAMPAIGN" Type="Self.CAMPAIGN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAMPAIGN_STATUS_TYPE">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="CAMPAIGN">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CAMPAIGN_DEPARTMENT">
+          <End Role="DEPARTMENT" Type="Self.DEPARTMENT" Multiplicity="1" />
+          <End Role="CAMPAIGN" Type="Self.CAMPAIGN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPARTMENT">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="CAMPAIGN">
+              <PropertyRef Name="Department_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CAMPAIGN_INVOICE">
+          <End Role="INVOICE" Type="Self.INVOICE" Multiplicity="1" />
+          <End Role="CAMPAIGN" Type="Self.CAMPAIGN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INVOICE">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CAMPAIGN">
+              <PropertyRef Name="Invoice_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CAMPAIGN_REQUEST">
+          <End Role="REQUEST" Type="Self.REQUEST" Multiplicity="1" />
+          <End Role="CAMPAIGN" Type="Self.CAMPAIGN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REQUEST">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CAMPAIGN">
+              <PropertyRef Name="Request_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CITIES_STATES">
+          <End Role="STATE" Type="Self.STATE" Multiplicity="1" />
+          <End Role="CITY" Type="Self.CITY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STATE">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="CITY">
+              <PropertyRef Name="State_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMPANY_CITY">
+          <End Role="CITY" Type="Self.CITY" Multiplicity="0..1" />
+          <End Role="COMPANY" Type="Self.COMPANY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CITY">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="COMPANY">
+              <PropertyRef Name="City_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMPANY_EMPLOYEE">
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="1" />
+          <End Role="COMPANY" Type="Self.COMPANY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="COMPANY">
+              <PropertyRef Name="Head_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMER_CITY">
+          <End Role="CITY" Type="Self.CITY" Multiplicity="0..1" />
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CITY">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="CUSTOMER">
+              <PropertyRef Name="City_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMER_INDUSTRY_TYPE">
+          <End Role="INDUSTRY_TYPE" Type="Self.INDUSTRY_TYPE" Multiplicity="0..1" />
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INDUSTRY_TYPE">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="CUSTOMER">
+              <PropertyRef Name="Industry_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DEPARTMENT_COMPANY">
+          <End Role="COMPANY" Type="Self.COMPANY" Multiplicity="1" />
+          <End Role="DEPARTMENT" Type="Self.DEPARTMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMPANY">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="DEPARTMENT">
+              <PropertyRef Name="Company_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DEPARTMENT_EMPLOYEE">
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="1" />
+          <End Role="DEPARTMENT" Type="Self.DEPARTMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="DEPARTMENT">
+              <PropertyRef Name="Head_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DISCUSSION_ADVERTISEMENT">
+          <End Role="ADVERTISEMENT" Type="Self.ADVERTISEMENT" Multiplicity="1" />
+          <End Role="DISCUSSION" Type="Self.DISCUSSION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADVERTISEMENT">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="DISCUSSION">
+              <PropertyRef Name="Advertisement_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPLOYEE_DEPARTMENT">
+          <End Role="DEPARTMENT" Type="Self.DEPARTMENT" Multiplicity="1" />
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPARTMENT">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="EMPLOYEE">
+              <PropertyRef Name="Department_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FEEDBACK_DISCUSSION">
+          <End Role="DISCUSSION" Type="Self.DISCUSSION" Multiplicity="1" />
+          <End Role="FEEDBACK" Type="Self.FEEDBACK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DISCUSSION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FEEDBACK">
+              <PropertyRef Name="Discussion_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REQUEST_AGE_TYPE">
+          <End Role="AGE_TYPE" Type="Self.AGE_TYPE" Multiplicity="0..1" />
+          <End Role="REQUEST" Type="Self.REQUEST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AGE_TYPE">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="REQUEST">
+              <PropertyRef Name="Age_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REQUEST_COMPANY">
+          <End Role="COMPANY" Type="Self.COMPANY" Multiplicity="1" />
+          <End Role="REQUEST" Type="Self.REQUEST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMPANY">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="REQUEST">
+              <PropertyRef Name="Company_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REQUEST_INDUSTRY_TYPE">
+          <End Role="INDUSTRY_TYPE" Type="Self.INDUSTRY_TYPE" Multiplicity="1" />
+          <End Role="REQUEST" Type="Self.REQUEST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INDUSTRY_TYPE">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="REQUEST">
+              <PropertyRef Name="Industry_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REQUEST_REGION_TYPE">
+          <End Role="REGION_TYPE" Type="Self.REGION_TYPE" Multiplicity="0..1" />
+          <End Role="REQUEST" Type="Self.REQUEST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REGION_TYPE">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="REQUEST">
+              <PropertyRef Name="Region_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SPECIALIST_DEPARTMENT">
+          <End Role="DEPARTMENT" Type="Self.DEPARTMENT" Multiplicity="1" />
+          <End Role="SPECIALIST" Type="Self.SPECIALIST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPARTMENT">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="SPECIALIST">
+              <PropertyRef Name="Department_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SPECIALIST_EMPLOYEE">
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="1" />
+          <End Role="SPECIALIST" Type="Self.SPECIALIST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="SPECIALIST">
+              <PropertyRef Name="Employee_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STATES_COUNTRIES">
+          <End Role="COUNTRY" Type="Self.COUNTRY" Multiplicity="1" />
+          <End Role="STATE" Type="Self.STATE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COUNTRY">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="STATE">
+              <PropertyRef Name="Country_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AdvtManagementModelStoreContainer">
+          <EntitySet Name="ADVERTISEMENT" EntityType="Self.ADVERTISEMENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ADVT_STATUS_TYPE" EntityType="Self.ADVT_STATUS_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AGE_TYPE" EntityType="Self.AGE_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CAMPAIGN" EntityType="Self.CAMPAIGN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CAMPAIGN_STATUS_TYPE" EntityType="Self.CAMPAIGN_STATUS_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CITY" EntityType="Self.CITY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="COMPANY" EntityType="Self.COMPANY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="COUNTRY" EntityType="Self.COUNTRY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DEPARTMENT" EntityType="Self.DEPARTMENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DISCUSSION" EntityType="Self.DISCUSSION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMPLOYEE" EntityType="Self.EMPLOYEE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FEEDBACK" EntityType="Self.FEEDBACK" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="INDUSTRY_TYPE" EntityType="Self.INDUSTRY_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="INVOICE" EntityType="Self.INVOICE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MEDIA_TYPE" EntityType="Self.MEDIA_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REGION_TYPE" EntityType="Self.REGION_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REQUEST" EntityType="Self.REQUEST" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SPECIALIST" EntityType="Self.SPECIALIST" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STATE" EntityType="Self.STATE" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ADVERTISEMENT_ADVT_STATUS_TYPE" Association="Self.FK_ADVERTISEMENT_ADVT_STATUS_TYPE">
+            <End Role="ADVT_STATUS_TYPE" EntitySet="ADVT_STATUS_TYPE" />
+            <End Role="ADVERTISEMENT" EntitySet="ADVERTISEMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ADVERTISEMENT_CAMPAIGN" Association="Self.FK_ADVERTISEMENT_CAMPAIGN">
+            <End Role="CAMPAIGN" EntitySet="CAMPAIGN" />
+            <End Role="ADVERTISEMENT" EntitySet="ADVERTISEMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ADVERTISEMENT_MEDIA_TYPE" Association="Self.FK_ADVERTISEMENT_MEDIA_TYPE">
+            <End Role="MEDIA_TYPE" EntitySet="MEDIA_TYPE" />
+            <End Role="ADVERTISEMENT" EntitySet="ADVERTISEMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CAMPAIGN_CAMPAIGN_STATUS_TYPE" Association="Self.FK_CAMPAIGN_CAMPAIGN_STATUS_TYPE">
+            <End Role="CAMPAIGN_STATUS_TYPE" EntitySet="CAMPAIGN_STATUS_TYPE" />
+            <End Role="CAMPAIGN" EntitySet="CAMPAIGN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CAMPAIGN_DEPARTMENT" Association="Self.FK_CAMPAIGN_DEPARTMENT">
+            <End Role="DEPARTMENT" EntitySet="DEPARTMENT" />
+            <End Role="CAMPAIGN" EntitySet="CAMPAIGN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CAMPAIGN_INVOICE" Association="Self.FK_CAMPAIGN_INVOICE">
+            <End Role="INVOICE" EntitySet="INVOICE" />
+            <End Role="CAMPAIGN" EntitySet="CAMPAIGN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CAMPAIGN_REQUEST" Association="Self.FK_CAMPAIGN_REQUEST">
+            <End Role="REQUEST" EntitySet="REQUEST" />
+            <End Role="CAMPAIGN" EntitySet="CAMPAIGN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CITIES_STATES" Association="Self.FK_CITIES_STATES">
+            <End Role="STATE" EntitySet="STATE" />
+            <End Role="CITY" EntitySet="CITY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMPANY_CITY" Association="Self.FK_COMPANY_CITY">
+            <End Role="CITY" EntitySet="CITY" />
+            <End Role="COMPANY" EntitySet="COMPANY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMPANY_EMPLOYEE" Association="Self.FK_COMPANY_EMPLOYEE">
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+            <End Role="COMPANY" EntitySet="COMPANY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMER_CITY" Association="Self.FK_CUSTOMER_CITY">
+            <End Role="CITY" EntitySet="CITY" />
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMER_INDUSTRY_TYPE" Association="Self.FK_CUSTOMER_INDUSTRY_TYPE">
+            <End Role="INDUSTRY_TYPE" EntitySet="INDUSTRY_TYPE" />
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DEPARTMENT_COMPANY" Association="Self.FK_DEPARTMENT_COMPANY">
+            <End Role="COMPANY" EntitySet="COMPANY" />
+            <End Role="DEPARTMENT" EntitySet="DEPARTMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DEPARTMENT_EMPLOYEE" Association="Self.FK_DEPARTMENT_EMPLOYEE">
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+            <End Role="DEPARTMENT" EntitySet="DEPARTMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DISCUSSION_ADVERTISEMENT" Association="Self.FK_DISCUSSION_ADVERTISEMENT">
+            <End Role="ADVERTISEMENT" EntitySet="ADVERTISEMENT" />
+            <End Role="DISCUSSION" EntitySet="DISCUSSION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPLOYEE_DEPARTMENT" Association="Self.FK_EMPLOYEE_DEPARTMENT">
+            <End Role="DEPARTMENT" EntitySet="DEPARTMENT" />
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FEEDBACK_DISCUSSION" Association="Self.FK_FEEDBACK_DISCUSSION">
+            <End Role="DISCUSSION" EntitySet="DISCUSSION" />
+            <End Role="FEEDBACK" EntitySet="FEEDBACK" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REQUEST_AGE_TYPE" Association="Self.FK_REQUEST_AGE_TYPE">
+            <End Role="AGE_TYPE" EntitySet="AGE_TYPE" />
+            <End Role="REQUEST" EntitySet="REQUEST" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REQUEST_COMPANY" Association="Self.FK_REQUEST_COMPANY">
+            <End Role="COMPANY" EntitySet="COMPANY" />
+            <End Role="REQUEST" EntitySet="REQUEST" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REQUEST_INDUSTRY_TYPE" Association="Self.FK_REQUEST_INDUSTRY_TYPE">
+            <End Role="INDUSTRY_TYPE" EntitySet="INDUSTRY_TYPE" />
+            <End Role="REQUEST" EntitySet="REQUEST" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REQUEST_REGION_TYPE" Association="Self.FK_REQUEST_REGION_TYPE">
+            <End Role="REGION_TYPE" EntitySet="REGION_TYPE" />
+            <End Role="REQUEST" EntitySet="REQUEST" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SPECIALIST_DEPARTMENT" Association="Self.FK_SPECIALIST_DEPARTMENT">
+            <End Role="DEPARTMENT" EntitySet="DEPARTMENT" />
+            <End Role="SPECIALIST" EntitySet="SPECIALIST" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SPECIALIST_EMPLOYEE" Association="Self.FK_SPECIALIST_EMPLOYEE">
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+            <End Role="SPECIALIST" EntitySet="SPECIALIST" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STATES_COUNTRIES" Association="Self.FK_STATES_COUNTRIES">
+            <End Role="COUNTRY" EntitySet="COUNTRY" />
+            <End Role="STATE" EntitySet="STATE" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AdvtManagement.Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ADVERTISEMENT">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Campaign_Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cost" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Content_url" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Media_Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ADVT_STATUS_TYPE" Relationship="Self.FK_ADVERTISEMENT_ADVT_STATUS_TYPE" FromRole="ADVERTISEMENT" ToRole="ADVT_STATUS_TYPE" />
+          <NavigationProperty Name="CAMPAIGN" Relationship="Self.FK_ADVERTISEMENT_CAMPAIGN" FromRole="ADVERTISEMENT" ToRole="CAMPAIGN" />
+          <NavigationProperty Name="MEDIA_TYPE" Relationship="Self.FK_ADVERTISEMENT_MEDIA_TYPE" FromRole="ADVERTISEMENT" ToRole="MEDIA_TYPE" />
+          <NavigationProperty Name="DISCUSSIONs" Relationship="Self.FK_DISCUSSION_ADVERTISEMENT" FromRole="ADVERTISEMENT" ToRole="DISCUSSION" />
+        </EntityType>
+        <EntityType Name="ADVT_STATUS_TYPE">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ADVERTISEMENTs" Relationship="Self.FK_ADVERTISEMENT_ADVT_STATUS_TYPE" FromRole="ADVT_STATUS_TYPE" ToRole="ADVERTISEMENT" />
+        </EntityType>
+        <EntityType Name="AGE_TYPE">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="REQUESTs" Relationship="Self.FK_REQUEST_AGE_TYPE" FromRole="AGE_TYPE" ToRole="REQUEST" />
+        </EntityType>
+        <EntityType Name="CAMPAIGN">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Request_id" Type="Int64" Nullable="false" />
+          <Property Name="Department_Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Invoice_id" Type="Int64" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ADVERTISEMENTs" Relationship="Self.FK_ADVERTISEMENT_CAMPAIGN" FromRole="CAMPAIGN" ToRole="ADVERTISEMENT" />
+          <NavigationProperty Name="CAMPAIGN_STATUS_TYPE" Relationship="Self.FK_CAMPAIGN_CAMPAIGN_STATUS_TYPE" FromRole="CAMPAIGN" ToRole="CAMPAIGN_STATUS_TYPE" />
+          <NavigationProperty Name="DEPARTMENT" Relationship="Self.FK_CAMPAIGN_DEPARTMENT" FromRole="CAMPAIGN" ToRole="DEPARTMENT" />
+          <NavigationProperty Name="INVOICE" Relationship="Self.FK_CAMPAIGN_INVOICE" FromRole="CAMPAIGN" ToRole="INVOICE" />
+          <NavigationProperty Name="REQUEST" Relationship="Self.FK_CAMPAIGN_REQUEST" FromRole="CAMPAIGN" ToRole="REQUEST" />
+        </EntityType>
+        <EntityType Name="CAMPAIGN_STATUS_TYPE">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CAMPAIGNs" Relationship="Self.FK_CAMPAIGN_CAMPAIGN_STATUS_TYPE" FromRole="CAMPAIGN_STATUS_TYPE" ToRole="CAMPAIGN" />
+        </EntityType>
+        <EntityType Name="CITY">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State_Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="STATE" Relationship="Self.FK_CITIES_STATES" FromRole="CITY" ToRole="STATE" />
+          <NavigationProperty Name="COMPANies" Relationship="Self.FK_COMPANY_CITY" FromRole="CITY" ToRole="COMPANY" />
+          <NavigationProperty Name="CUSTOMERs" Relationship="Self.FK_CUSTOMER_CITY" FromRole="CITY" ToRole="CUSTOMER" />
+        </EntityType>
+        <EntityType Name="COMPANY">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="City_code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Head_Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CITY" Relationship="Self.FK_COMPANY_CITY" FromRole="COMPANY" ToRole="CITY" />
+          <NavigationProperty Name="EMPLOYEE" Relationship="Self.FK_COMPANY_EMPLOYEE" FromRole="COMPANY" ToRole="EMPLOYEE" />
+          <NavigationProperty Name="DEPARTMENTs" Relationship="Self.FK_DEPARTMENT_COMPANY" FromRole="COMPANY" ToRole="DEPARTMENT" />
+          <NavigationProperty Name="REQUESTs" Relationship="Self.FK_REQUEST_COMPANY" FromRole="COMPANY" ToRole="REQUEST" />
+        </EntityType>
+        <EntityType Name="COUNTRY">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="STATEs" Relationship="Self.FK_STATES_COUNTRIES" FromRole="COUNTRY" ToRole="STATE" />
+        </EntityType>
+        <EntityType Name="CUSTOMER">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="City_Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Industry_Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CITY" Relationship="Self.FK_CUSTOMER_CITY" FromRole="CUSTOMER" ToRole="CITY" />
+          <NavigationProperty Name="INDUSTRY_TYPE" Relationship="Self.FK_CUSTOMER_INDUSTRY_TYPE" FromRole="CUSTOMER" ToRole="INDUSTRY_TYPE" />
+        </EntityType>
+        <EntityType Name="DEPARTMENT">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Company_Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Head_Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CAMPAIGNs" Relationship="Self.FK_CAMPAIGN_DEPARTMENT" FromRole="DEPARTMENT" ToRole="CAMPAIGN" />
+          <NavigationProperty Name="COMPANY" Relationship="Self.FK_DEPARTMENT_COMPANY" FromRole="DEPARTMENT" ToRole="COMPANY" />
+          <NavigationProperty Name="EMPLOYEE" Relationship="Self.FK_DEPARTMENT_EMPLOYEE" FromRole="DEPARTMENT" ToRole="EMPLOYEE" />
+          <NavigationProperty Name="EMPLOYEEs" Relationship="Self.FK_EMPLOYEE_DEPARTMENT" FromRole="DEPARTMENT" ToRole="EMPLOYEE" />
+          <NavigationProperty Name="EMPLOYEEs1" Relationship="Self.SPECIALIST" FromRole="DEPARTMENT" ToRole="EMPLOYEE" />
+        </EntityType>
+        <EntityType Name="DISCUSSION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Advertisement_Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MeetingDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Details" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ADVERTISEMENT" Relationship="Self.FK_DISCUSSION_ADVERTISEMENT" FromRole="DISCUSSION" ToRole="ADVERTISEMENT" />
+          <NavigationProperty Name="FEEDBACKs" Relationship="Self.FK_FEEDBACK_DISCUSSION" FromRole="DISCUSSION" ToRole="FEEDBACK" />
+        </EntityType>
+        <EntityType Name="EMPLOYEE">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Department_Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="COMPANies" Relationship="Self.FK_COMPANY_EMPLOYEE" FromRole="EMPLOYEE" ToRole="COMPANY" />
+          <NavigationProperty Name="DEPARTMENTs" Relationship="Self.FK_DEPARTMENT_EMPLOYEE" FromRole="EMPLOYEE" ToRole="DEPARTMENT" />
+          <NavigationProperty Name="DEPARTMENT" Relationship="Self.FK_EMPLOYEE_DEPARTMENT" FromRole="EMPLOYEE" ToRole="DEPARTMENT" />
+          <NavigationProperty Name="DEPARTMENTs1" Relationship="Self.SPECIALIST" FromRole="EMPLOYEE" ToRole="DEPARTMENT" />
+        </EntityType>
+        <EntityType Name="FEEDBACK">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Discussion_id" Type="Int64" Nullable="false" />
+          <Property Name="Details" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Incorporated" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="DISCUSSION" Relationship="Self.FK_FEEDBACK_DISCUSSION" FromRole="FEEDBACK" ToRole="DISCUSSION" />
+        </EntityType>
+        <EntityType Name="INDUSTRY_TYPE">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CUSTOMERs" Relationship="Self.FK_CUSTOMER_INDUSTRY_TYPE" FromRole="INDUSTRY_TYPE" ToRole="CUSTOMER" />
+          <NavigationProperty Name="REQUESTs" Relationship="Self.FK_REQUEST_INDUSTRY_TYPE" FromRole="INDUSTRY_TYPE" ToRole="REQUEST" />
+        </EntityType>
+        <EntityType Name="INVOICE">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PaidAmount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CAMPAIGNs" Relationship="Self.FK_CAMPAIGN_INVOICE" FromRole="INVOICE" ToRole="CAMPAIGN" />
+        </EntityType>
+        <EntityType Name="MEDIA_TYPE">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ADVERTISEMENTs" Relationship="Self.FK_ADVERTISEMENT_MEDIA_TYPE" FromRole="MEDIA_TYPE" ToRole="ADVERTISEMENT" />
+        </EntityType>
+        <EntityType Name="REGION_TYPE">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="REQUESTs" Relationship="Self.FK_REQUEST_REGION_TYPE" FromRole="REGION_TYPE" ToRole="REQUEST" />
+        </EntityType>
+        <EntityType Name="REQUEST">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Industry_code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Start_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="End_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Budget" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Company_Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Age_code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Region_Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AGE_TYPE" Relationship="Self.FK_REQUEST_AGE_TYPE" FromRole="REQUEST" ToRole="AGE_TYPE" />
+          <NavigationProperty Name="CAMPAIGNs" Relationship="Self.FK_CAMPAIGN_REQUEST" FromRole="REQUEST" ToRole="CAMPAIGN" />
+          <NavigationProperty Name="COMPANY" Relationship="Self.FK_REQUEST_COMPANY" FromRole="REQUEST" ToRole="COMPANY" />
+          <NavigationProperty Name="INDUSTRY_TYPE" Relationship="Self.FK_REQUEST_INDUSTRY_TYPE" FromRole="REQUEST" ToRole="INDUSTRY_TYPE" />
+          <NavigationProperty Name="REGION_TYPE" Relationship="Self.FK_REQUEST_REGION_TYPE" FromRole="REQUEST" ToRole="REGION_TYPE" />
+        </EntityType>
+        <EntityType Name="STATE">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Country_Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CITies" Relationship="Self.FK_CITIES_STATES" FromRole="STATE" ToRole="CITY" />
+          <NavigationProperty Name="COUNTRY" Relationship="Self.FK_STATES_COUNTRIES" FromRole="STATE" ToRole="COUNTRY" />
+        </EntityType>
+        <Association Name="FK_ADVERTISEMENT_ADVT_STATUS_TYPE">
+          <End Role="ADVT_STATUS_TYPE" Type="Self.ADVT_STATUS_TYPE" Multiplicity="1" />
+          <End Role="ADVERTISEMENT" Type="Self.ADVERTISEMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADVT_STATUS_TYPE">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ADVERTISEMENT">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ADVERTISEMENT_CAMPAIGN">
+          <End Role="CAMPAIGN" Type="Self.CAMPAIGN" Multiplicity="1" />
+          <End Role="ADVERTISEMENT" Type="Self.ADVERTISEMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAMPAIGN">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ADVERTISEMENT">
+              <PropertyRef Name="Campaign_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ADVERTISEMENT_MEDIA_TYPE">
+          <End Role="MEDIA_TYPE" Type="Self.MEDIA_TYPE" Multiplicity="0..1" />
+          <End Role="ADVERTISEMENT" Type="Self.ADVERTISEMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MEDIA_TYPE">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ADVERTISEMENT">
+              <PropertyRef Name="Media_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DISCUSSION_ADVERTISEMENT">
+          <End Role="ADVERTISEMENT" Type="Self.ADVERTISEMENT" Multiplicity="1" />
+          <End Role="DISCUSSION" Type="Self.DISCUSSION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADVERTISEMENT">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="DISCUSSION">
+              <PropertyRef Name="Advertisement_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REQUEST_AGE_TYPE">
+          <End Role="AGE_TYPE" Type="Self.AGE_TYPE" Multiplicity="0..1" />
+          <End Role="REQUEST" Type="Self.REQUEST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AGE_TYPE">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="REQUEST">
+              <PropertyRef Name="Age_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CAMPAIGN_CAMPAIGN_STATUS_TYPE">
+          <End Role="CAMPAIGN_STATUS_TYPE" Type="Self.CAMPAIGN_STATUS_TYPE" Multiplicity="1" />
+          <End Role="CAMPAIGN" Type="Self.CAMPAIGN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAMPAIGN_STATUS_TYPE">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="CAMPAIGN">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CAMPAIGN_DEPARTMENT">
+          <End Role="DEPARTMENT" Type="Self.DEPARTMENT" Multiplicity="1" />
+          <End Role="CAMPAIGN" Type="Self.CAMPAIGN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPARTMENT">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="CAMPAIGN">
+              <PropertyRef Name="Department_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CAMPAIGN_INVOICE">
+          <End Role="INVOICE" Type="Self.INVOICE" Multiplicity="1" />
+          <End Role="CAMPAIGN" Type="Self.CAMPAIGN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INVOICE">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CAMPAIGN">
+              <PropertyRef Name="Invoice_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CAMPAIGN_REQUEST">
+          <End Role="REQUEST" Type="Self.REQUEST" Multiplicity="1" />
+          <End Role="CAMPAIGN" Type="Self.CAMPAIGN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REQUEST">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CAMPAIGN">
+              <PropertyRef Name="Request_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CITIES_STATES">
+          <End Role="STATE" Type="Self.STATE" Multiplicity="1" />
+          <End Role="CITY" Type="Self.CITY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STATE">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="CITY">
+              <PropertyRef Name="State_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMPANY_CITY">
+          <End Role="CITY" Type="Self.CITY" Multiplicity="0..1" />
+          <End Role="COMPANY" Type="Self.COMPANY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CITY">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="COMPANY">
+              <PropertyRef Name="City_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMER_CITY">
+          <End Role="CITY" Type="Self.CITY" Multiplicity="0..1" />
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CITY">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="CUSTOMER">
+              <PropertyRef Name="City_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMPANY_EMPLOYEE">
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="1" />
+          <End Role="COMPANY" Type="Self.COMPANY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="COMPANY">
+              <PropertyRef Name="Head_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DEPARTMENT_COMPANY">
+          <End Role="COMPANY" Type="Self.COMPANY" Multiplicity="1" />
+          <End Role="DEPARTMENT" Type="Self.DEPARTMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMPANY">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="DEPARTMENT">
+              <PropertyRef Name="Company_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REQUEST_COMPANY">
+          <End Role="COMPANY" Type="Self.COMPANY" Multiplicity="1" />
+          <End Role="REQUEST" Type="Self.REQUEST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMPANY">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="REQUEST">
+              <PropertyRef Name="Company_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STATES_COUNTRIES">
+          <End Role="COUNTRY" Type="Self.COUNTRY" Multiplicity="1" />
+          <End Role="STATE" Type="Self.STATE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COUNTRY">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="STATE">
+              <PropertyRef Name="Country_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMER_INDUSTRY_TYPE">
+          <End Role="INDUSTRY_TYPE" Type="Self.INDUSTRY_TYPE" Multiplicity="0..1" />
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INDUSTRY_TYPE">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="CUSTOMER">
+              <PropertyRef Name="Industry_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DEPARTMENT_EMPLOYEE">
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="1" />
+          <End Role="DEPARTMENT" Type="Self.DEPARTMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="DEPARTMENT">
+              <PropertyRef Name="Head_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPLOYEE_DEPARTMENT">
+          <End Role="DEPARTMENT" Type="Self.DEPARTMENT" Multiplicity="1" />
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPARTMENT">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="EMPLOYEE">
+              <PropertyRef Name="Department_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FEEDBACK_DISCUSSION">
+          <End Role="DISCUSSION" Type="Self.DISCUSSION" Multiplicity="1" />
+          <End Role="FEEDBACK" Type="Self.FEEDBACK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DISCUSSION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FEEDBACK">
+              <PropertyRef Name="Discussion_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REQUEST_INDUSTRY_TYPE">
+          <End Role="INDUSTRY_TYPE" Type="Self.INDUSTRY_TYPE" Multiplicity="1" />
+          <End Role="REQUEST" Type="Self.REQUEST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INDUSTRY_TYPE">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="REQUEST">
+              <PropertyRef Name="Industry_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REQUEST_REGION_TYPE">
+          <End Role="REGION_TYPE" Type="Self.REGION_TYPE" Multiplicity="0..1" />
+          <End Role="REQUEST" Type="Self.REQUEST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REGION_TYPE">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="REQUEST">
+              <PropertyRef Name="Region_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SPECIALIST">
+          <End Role="DEPARTMENT" Type="Self.DEPARTMENT" Multiplicity="*" />
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="AdvtManagementEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ADVERTISEMENTs" EntityType="Self.ADVERTISEMENT" />
+          <EntitySet Name="ADVT_STATUS_TYPE" EntityType="Self.ADVT_STATUS_TYPE" />
+          <EntitySet Name="AGE_TYPE" EntityType="Self.AGE_TYPE" />
+          <EntitySet Name="CAMPAIGNs" EntityType="Self.CAMPAIGN" />
+          <EntitySet Name="CAMPAIGN_STATUS_TYPE" EntityType="Self.CAMPAIGN_STATUS_TYPE" />
+          <EntitySet Name="CITies" EntityType="Self.CITY" />
+          <EntitySet Name="COMPANies" EntityType="Self.COMPANY" />
+          <EntitySet Name="COUNTRies" EntityType="Self.COUNTRY" />
+          <EntitySet Name="CUSTOMERs" EntityType="Self.CUSTOMER" />
+          <EntitySet Name="DEPARTMENTs" EntityType="Self.DEPARTMENT" />
+          <EntitySet Name="DISCUSSIONs" EntityType="Self.DISCUSSION" />
+          <EntitySet Name="EMPLOYEEs" EntityType="Self.EMPLOYEE" />
+          <EntitySet Name="FEEDBACKs" EntityType="Self.FEEDBACK" />
+          <EntitySet Name="INDUSTRY_TYPE" EntityType="Self.INDUSTRY_TYPE" />
+          <EntitySet Name="INVOICEs" EntityType="Self.INVOICE" />
+          <EntitySet Name="MEDIA_TYPE" EntityType="Self.MEDIA_TYPE" />
+          <EntitySet Name="REGION_TYPE" EntityType="Self.REGION_TYPE" />
+          <EntitySet Name="REQUESTs" EntityType="Self.REQUEST" />
+          <EntitySet Name="STATEs" EntityType="Self.STATE" />
+          <AssociationSet Name="FK_ADVERTISEMENT_ADVT_STATUS_TYPE" Association="Self.FK_ADVERTISEMENT_ADVT_STATUS_TYPE">
+            <End Role="ADVT_STATUS_TYPE" EntitySet="ADVT_STATUS_TYPE" />
+            <End Role="ADVERTISEMENT" EntitySet="ADVERTISEMENTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ADVERTISEMENT_CAMPAIGN" Association="Self.FK_ADVERTISEMENT_CAMPAIGN">
+            <End Role="CAMPAIGN" EntitySet="CAMPAIGNs" />
+            <End Role="ADVERTISEMENT" EntitySet="ADVERTISEMENTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ADVERTISEMENT_MEDIA_TYPE" Association="Self.FK_ADVERTISEMENT_MEDIA_TYPE">
+            <End Role="MEDIA_TYPE" EntitySet="MEDIA_TYPE" />
+            <End Role="ADVERTISEMENT" EntitySet="ADVERTISEMENTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DISCUSSION_ADVERTISEMENT" Association="Self.FK_DISCUSSION_ADVERTISEMENT">
+            <End Role="ADVERTISEMENT" EntitySet="ADVERTISEMENTs" />
+            <End Role="DISCUSSION" EntitySet="DISCUSSIONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REQUEST_AGE_TYPE" Association="Self.FK_REQUEST_AGE_TYPE">
+            <End Role="AGE_TYPE" EntitySet="AGE_TYPE" />
+            <End Role="REQUEST" EntitySet="REQUESTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CAMPAIGN_CAMPAIGN_STATUS_TYPE" Association="Self.FK_CAMPAIGN_CAMPAIGN_STATUS_TYPE">
+            <End Role="CAMPAIGN_STATUS_TYPE" EntitySet="CAMPAIGN_STATUS_TYPE" />
+            <End Role="CAMPAIGN" EntitySet="CAMPAIGNs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CAMPAIGN_DEPARTMENT" Association="Self.FK_CAMPAIGN_DEPARTMENT">
+            <End Role="DEPARTMENT" EntitySet="DEPARTMENTs" />
+            <End Role="CAMPAIGN" EntitySet="CAMPAIGNs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CAMPAIGN_INVOICE" Association="Self.FK_CAMPAIGN_INVOICE">
+            <End Role="INVOICE" EntitySet="INVOICEs" />
+            <End Role="CAMPAIGN" EntitySet="CAMPAIGNs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CAMPAIGN_REQUEST" Association="Self.FK_CAMPAIGN_REQUEST">
+            <End Role="REQUEST" EntitySet="REQUESTs" />
+            <End Role="CAMPAIGN" EntitySet="CAMPAIGNs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CITIES_STATES" Association="Self.FK_CITIES_STATES">
+            <End Role="STATE" EntitySet="STATEs" />
+            <End Role="CITY" EntitySet="CITies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMPANY_CITY" Association="Self.FK_COMPANY_CITY">
+            <End Role="CITY" EntitySet="CITies" />
+            <End Role="COMPANY" EntitySet="COMPANies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMER_CITY" Association="Self.FK_CUSTOMER_CITY">
+            <End Role="CITY" EntitySet="CITies" />
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMPANY_EMPLOYEE" Association="Self.FK_COMPANY_EMPLOYEE">
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+            <End Role="COMPANY" EntitySet="COMPANies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DEPARTMENT_COMPANY" Association="Self.FK_DEPARTMENT_COMPANY">
+            <End Role="COMPANY" EntitySet="COMPANies" />
+            <End Role="DEPARTMENT" EntitySet="DEPARTMENTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REQUEST_COMPANY" Association="Self.FK_REQUEST_COMPANY">
+            <End Role="COMPANY" EntitySet="COMPANies" />
+            <End Role="REQUEST" EntitySet="REQUESTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STATES_COUNTRIES" Association="Self.FK_STATES_COUNTRIES">
+            <End Role="COUNTRY" EntitySet="COUNTRies" />
+            <End Role="STATE" EntitySet="STATEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMER_INDUSTRY_TYPE" Association="Self.FK_CUSTOMER_INDUSTRY_TYPE">
+            <End Role="INDUSTRY_TYPE" EntitySet="INDUSTRY_TYPE" />
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DEPARTMENT_EMPLOYEE" Association="Self.FK_DEPARTMENT_EMPLOYEE">
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+            <End Role="DEPARTMENT" EntitySet="DEPARTMENTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPLOYEE_DEPARTMENT" Association="Self.FK_EMPLOYEE_DEPARTMENT">
+            <End Role="DEPARTMENT" EntitySet="DEPARTMENTs" />
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FEEDBACK_DISCUSSION" Association="Self.FK_FEEDBACK_DISCUSSION">
+            <End Role="DISCUSSION" EntitySet="DISCUSSIONs" />
+            <End Role="FEEDBACK" EntitySet="FEEDBACKs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REQUEST_INDUSTRY_TYPE" Association="Self.FK_REQUEST_INDUSTRY_TYPE">
+            <End Role="INDUSTRY_TYPE" EntitySet="INDUSTRY_TYPE" />
+            <End Role="REQUEST" EntitySet="REQUESTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REQUEST_REGION_TYPE" Association="Self.FK_REQUEST_REGION_TYPE">
+            <End Role="REGION_TYPE" EntitySet="REGION_TYPE" />
+            <End Role="REQUEST" EntitySet="REQUESTs" />
+          </AssociationSet>
+          <AssociationSet Name="SPECIALIST" Association="Self.SPECIALIST">
+            <End Role="DEPARTMENT" EntitySet="DEPARTMENTs" />
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AdvtManagementModelStoreContainer" CdmEntityContainer="AdvtManagementEntities">
+          <EntitySetMapping Name="ADVERTISEMENTs">
+            <EntityTypeMapping TypeName="AdvtManagement.Model.ADVERTISEMENT">
+              <MappingFragment StoreEntitySet="ADVERTISEMENT">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Campaign_Code" ColumnName="Campaign_Code" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Content_url" ColumnName="Content_url" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Media_Code" ColumnName="Media_Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ADVT_STATUS_TYPE">
+            <EntityTypeMapping TypeName="AdvtManagement.Model.ADVT_STATUS_TYPE">
+              <MappingFragment StoreEntitySet="ADVT_STATUS_TYPE">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AGE_TYPE">
+            <EntityTypeMapping TypeName="AdvtManagement.Model.AGE_TYPE">
+              <MappingFragment StoreEntitySet="AGE_TYPE">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CAMPAIGNs">
+            <EntityTypeMapping TypeName="AdvtManagement.Model.CAMPAIGN">
+              <MappingFragment StoreEntitySet="CAMPAIGN">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Request_id" ColumnName="Request_id" />
+                <ScalarProperty Name="Department_Code" ColumnName="Department_Code" />
+                <ScalarProperty Name="Invoice_id" ColumnName="Invoice_id" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CAMPAIGN_STATUS_TYPE">
+            <EntityTypeMapping TypeName="AdvtManagement.Model.CAMPAIGN_STATUS_TYPE">
+              <MappingFragment StoreEntitySet="CAMPAIGN_STATUS_TYPE">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CITies">
+            <EntityTypeMapping TypeName="AdvtManagement.Model.CITY">
+              <MappingFragment StoreEntitySet="CITY">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="State_Code" ColumnName="State_Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COMPANies">
+            <EntityTypeMapping TypeName="AdvtManagement.Model.COMPANY">
+              <MappingFragment StoreEntitySet="COMPANY">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City_code" ColumnName="City_code" />
+                <ScalarProperty Name="Head_Code" ColumnName="Head_Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COUNTRies">
+            <EntityTypeMapping TypeName="AdvtManagement.Model.COUNTRY">
+              <MappingFragment StoreEntitySet="COUNTRY">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMERs">
+            <EntityTypeMapping TypeName="AdvtManagement.Model.CUSTOMER">
+              <MappingFragment StoreEntitySet="CUSTOMER">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="City_Code" ColumnName="City_Code" />
+                <ScalarProperty Name="Industry_Code" ColumnName="Industry_Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DEPARTMENTs">
+            <EntityTypeMapping TypeName="AdvtManagement.Model.DEPARTMENT">
+              <MappingFragment StoreEntitySet="DEPARTMENT">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Company_Code" ColumnName="Company_Code" />
+                <ScalarProperty Name="Head_Code" ColumnName="Head_Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DISCUSSIONs">
+            <EntityTypeMapping TypeName="AdvtManagement.Model.DISCUSSION">
+              <MappingFragment StoreEntitySet="DISCUSSION">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Advertisement_Code" ColumnName="Advertisement_Code" />
+                <ScalarProperty Name="MeetingDate" ColumnName="MeetingDate" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPLOYEEs">
+            <EntityTypeMapping TypeName="AdvtManagement.Model.EMPLOYEE">
+              <MappingFragment StoreEntitySet="EMPLOYEE">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Department_Code" ColumnName="Department_Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FEEDBACKs">
+            <EntityTypeMapping TypeName="AdvtManagement.Model.FEEDBACK">
+              <MappingFragment StoreEntitySet="FEEDBACK">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Discussion_id" ColumnName="Discussion_id" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="Incorporated" ColumnName="Incorporated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="INDUSTRY_TYPE">
+            <EntityTypeMapping TypeName="AdvtManagement.Model.INDUSTRY_TYPE">
+              <MappingFragment StoreEntitySet="INDUSTRY_TYPE">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="INVOICEs">
+            <EntityTypeMapping TypeName="AdvtManagement.Model.INVOICE">
+              <MappingFragment StoreEntitySet="INVOICE">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="PaidAmount" ColumnName="PaidAmount" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MEDIA_TYPE">
+            <EntityTypeMapping TypeName="AdvtManagement.Model.MEDIA_TYPE">
+              <MappingFragment StoreEntitySet="MEDIA_TYPE">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REGION_TYPE">
+            <EntityTypeMapping TypeName="AdvtManagement.Model.REGION_TYPE">
+              <MappingFragment StoreEntitySet="REGION_TYPE">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REQUESTs">
+            <EntityTypeMapping TypeName="AdvtManagement.Model.REQUEST">
+              <MappingFragment StoreEntitySet="REQUEST">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Industry_code" ColumnName="Industry_code" />
+                <ScalarProperty Name="Start_Date" ColumnName="Start_Date" />
+                <ScalarProperty Name="End_Date" ColumnName="End_Date" />
+                <ScalarProperty Name="Budget" ColumnName="Budget" />
+                <ScalarProperty Name="Company_Code" ColumnName="Company_Code" />
+                <ScalarProperty Name="Age_code" ColumnName="Age_code" />
+                <ScalarProperty Name="Region_Code" ColumnName="Region_Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STATEs">
+            <EntityTypeMapping TypeName="AdvtManagement.Model.STATE">
+              <MappingFragment StoreEntitySet="STATE">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Country_Code" ColumnName="Country_Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="SPECIALIST" TypeName="AdvtManagement.Model.SPECIALIST" StoreEntitySet="SPECIALIST">
+            <EndProperty Name="DEPARTMENT">
+              <ScalarProperty Name="Code" ColumnName="Department_Code" />
+            </EndProperty>
+            <EndProperty Name="EMPLOYEE">
+              <ScalarProperty Name="Code" ColumnName="Employee_Code" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
